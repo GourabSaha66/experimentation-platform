@@ -176,8 +176,12 @@ def analyze_bayes(df: pd.DataFrame, group_col: str, metric_col: str, control: st
     if min_effect:
         concl += (f"The probability that B beats A by more than your minimum worthwhile effect "
                   f"({min_effect * d:g} {unit}) is {pct(r['prob_b_beats_a_by_min'], 1)}. ")
-    concl += (f"If you ship B and it is actually worse, you would lose {r['expected_loss_choose_b'] * d:.3f} {unit} on average; "
-              f"if you stay with A and B is actually better, you would give up {r['expected_loss_choose_a'] * d:.3f} {unit}. ")
+    def loss(v: float) -> str:
+        v = v * d
+        return "less than 0.001" if v < 0.001 else f"{v:.3f}"
+
+    concl += (f"If you ship B and it is actually worse, you would lose {loss(r['expected_loss_choose_b'])} {unit} on average; "
+              f"if you stay with A and B is actually better, you would give up {loss(r['expected_loss_choose_a'])} {unit}. ")
     if p >= 0.95:
         verdict = "significant"
         concl += "The evidence favours B strongly."
@@ -206,7 +210,7 @@ def analyze_bayes(df: pd.DataFrame, group_col: str, metric_col: str, control: st
     ]
     key = [kn("Probability B beats A", pct(p, 1)), kn("Expected difference", f"{r['diff_mean'] * d:+.3f}", unit),
            kn("95% credible interval", f"{r['diff_low'] * d:+.3f} to {r['diff_high'] * d:+.3f}", unit),
-           kn("Expected loss if you ship B", f"{r['expected_loss_choose_b'] * d:.4f}", unit),
+           kn("Expected loss if you ship B", ("< 0.001" if r['expected_loss_choose_b'] * d < 0.001 else f"{r['expected_loss_choose_b'] * d:.3f}"), unit),
            kn("Sampler check (R-hat)", f"{r['rhat_max']:.3f}", "should be below 1.01")]
     if "rel_median" in r:
         key.append(kn("Relative change", f"{r['rel_median'] * 100:+.1f}%", f"95% interval {r['rel_low'] * 100:+.1f}% to {r['rel_high'] * 100:+.1f}%"))

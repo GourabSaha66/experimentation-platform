@@ -224,7 +224,7 @@ def analyze_psm(df: pd.DataFrame, treatment: str, outcome: str, covariates: list
            kn("Treated units matched", f"{len(rt):,} of {n_t:,}", f"caliper {caliper} sd of the logit score"),
            kn("Worst covariate imbalance after", f"{worst_after:.3f}", "aim for below 0.1")]
     if "att" in dw:
-        key.append(kn("DoWhy matching estimate", fmt(dw["att"]), "backdoor.propensity_score_matching"))
+        key.append(kn("DoWhy matching estimate", fmt(dw["att"]), "DoWhy backdoor matching"))
     if dw.get("refutation"):
         rf = dw["refutation"]
         key.append(kn("DoWhy placebo refutation", f"effect {fmt(rf['placebo_effect'])}", f"p = {rf['p_value']:.2f}; high p = passes" if rf["p_value"] is not None else ""))
@@ -236,7 +236,7 @@ def analyze_psm(df: pd.DataFrame, treatment: str, outcome: str, covariates: list
     if "att" in dw:
         forest.append({"label": "DoWhy matching", "estimate": dw["att"], "lo": None, "hi": None})
     if ec.get("available"):
-        forest.append({"label": "EconML doubly robust (overlap region)", "estimate": ec["ate"], "lo": ec["ci_low"], "hi": ec["ci_high"]})
+        forest.append({"label": "EconML doubly robust", "estimate": ec["ate"], "lo": ec["ci_low"], "hi": ec["ci_high"]})
     charts = [
         {"id": "estimates", "title": "Effect estimates compared", "kind": "forest", "rows": forest, "ref": known_effect if known_effect is not None else 0,
          "ref_label": "known true effect" if known_effect is not None else "no effect"},

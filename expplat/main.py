@@ -204,7 +204,7 @@ def inspect(file: UploadFile = File(...)):
         nun = int(s.nunique(dropna=True))
         cols.append({"name": c, "dtype": "number" if pd.api.types.is_numeric_dtype(s) else "text", "n_unique": nun,
                      "missing": int(s.isna().sum()),
-                     "values": [str(v) for v in s.dropna().unique()[:12]] if nun <= 12 else [],
+                     "values": sorted(str(v) for v in s.dropna().unique()) if nun <= 200 else [],
                      "examples": [str(v) for v in s.dropna().head(3)]})
     return clean({"rows": len(df), "columns": cols, "preview": df.head(8).astype(object).where(df.head(8).notna(), None).to_dict(orient="records")})
 
