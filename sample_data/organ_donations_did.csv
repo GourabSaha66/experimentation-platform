@@ -1,0 +1,163 @@
+State,Quarter,Rate,Quarter_Num,group
+Alaska,Q42010,0.75,1,Other states
+Alaska,Q12011,0.77,2,Other states
+Alaska,Q22011,0.77,3,Other states
+Alaska,Q32011,0.78,4,Other states
+Alaska,Q42011,0.78,5,Other states
+Alaska,Q12012,0.79,6,Other states
+Arizona,Q42010,0.2634,1,Other states
+Arizona,Q12011,0.20920000000000002,2,Other states
+Arizona,Q22011,0.2261,3,Other states
+Arizona,Q32011,0.2503,4,Other states
+Arizona,Q42011,0.2351,5,Other states
+Arizona,Q12012,0.2587,6,Other states
+California,Q42010,0.2666,1,California
+California,Q12011,0.2731,2,California
+California,Q22011,0.2743,3,California
+California,Q32011,0.2636,4,California
+California,Q42011,0.2607,5,California
+California,Q12012,0.2641,6,California
+Colorado,Q42010,0.6653,1,Other states
+Colorado,Q12011,0.6674,2,Other states
+Colorado,Q22011,0.6736,3,Other states
+Colorado,Q32011,0.6715000000000001,4,Other states
+Colorado,Q42011,0.6698999999999999,5,Other states
+Colorado,Q12012,0.6594,6,Other states
+Connecticut,Q42010,0.39049999999999996,1,Other states
+Connecticut,Q12011,0.38530000000000003,2,Other states
+Connecticut,Q22011,0.39520000000000005,3,Other states
+Connecticut,Q32011,0.4031,4,Other states
+Connecticut,Q42011,0.3864,5,Other states
+Connecticut,Q12012,0.39840000000000003,6,Other states
+District of Columbia,Q42010,0.3319,1,Other states
+District of Columbia,Q12011,0.2866,2,Other states
+District of Columbia,Q22011,0.29510000000000003,3,Other states
+District of Columbia,Q32011,0.40240000000000004,4,Other states
+District of Columbia,Q42011,0.3791,5,Other states
+District of Columbia,Q12012,0.36460000000000004,6,Other states
+Florida,Q42010,0.3753,1,Other states
+Florida,Q12011,0.3795,2,Other states
+Florida,Q22011,0.3947,3,Other states
+Florida,Q32011,0.4181,4,Other states
+Florida,Q42011,0.40369999999999995,5,Other states
+Florida,Q12012,0.40700000000000003,6,Other states
+Hawaii,Q42010,0.41700000000000004,1,Other states
+Hawaii,Q12011,0.4105,2,Other states
+Hawaii,Q22011,0.42710000000000004,3,Other states
+Hawaii,Q32011,0.4294,4,Other states
+Hawaii,Q42011,0.4307,5,Other states
+Hawaii,Q12012,0.4108,6,Other states
+Louisiana,Q42010,0.5372,1,Other states
+Louisiana,Q12011,0.546,2,Other states
+Louisiana,Q22011,0.5619,3,Other states
+Louisiana,Q32011,0.5949,4,Other states
+Louisiana,Q42011,0.551,5,Other states
+Louisiana,Q12012,0.5486,6,Other states
+Maryland,Q42010,0.4635,1,Other states
+Maryland,Q12011,0.45289999999999997,2,Other states
+Maryland,Q22011,0.4679,3,Other states
+Maryland,Q32011,0.45899999999999996,4,Other states
+Maryland,Q42011,0.495,5,Other states
+Maryland,Q12012,0.456,6,Other states
+Michigan,Q42010,0.1563,1,Other states
+Michigan,Q12011,0.1491,2,Other states
+Michigan,Q22011,0.1923,3,Other states
+Michigan,Q32011,0.24609999999999999,4,Other states
+Michigan,Q42011,0.22940000000000002,5,Other states
+Michigan,Q12012,0.4216,6,Other states
+Minnesota,Q42010,0.5357999999999999,1,Other states
+Minnesota,Q12011,0.5173,2,Other states
+Minnesota,Q22011,0.5202,3,Other states
+Minnesota,Q32011,0.5246,4,Other states
+Minnesota,Q42011,0.528,5,Other states
+Minnesota,Q12012,0.5398,6,Other states
+Missouri,Q42010,0.4025,1,Other states
+Missouri,Q12011,0.3987,2,Other states
+Missouri,Q22011,0.40630000000000005,3,Other states
+Missouri,Q32011,0.4089,4,Other states
+Missouri,Q42011,0.415,5,Other states
+Missouri,Q12012,0.4127,6,Other states
+Montana,Q42010,0.6429,1,Other states
+Montana,Q12011,0.6406000000000001,2,Other states
+Montana,Q22011,0.6578,3,Other states
+Montana,Q32011,0.6683,4,Other states
+Montana,Q42011,0.6674,5,Other states
+Montana,Q12012,0.6523,6,Other states
+Nebraska,Q42010,0.45409999999999995,1,Other states
+Nebraska,Q12011,0.4337,2,Other states
+Nebraska,Q22011,0.436,3,Other states
+Nebraska,Q32011,0.44049999999999995,4,Other states
+Nebraska,Q42011,0.4389,5,Other states
+Nebraska,Q12012,0.45189999999999997,6,Other states
+New Hampshire,Q42010,0.5576,1,Other states
+New Hampshire,Q12011,0.5594,2,Other states
+New Hampshire,Q22011,0.5643,3,Other states
+New Hampshire,Q32011,0.5334,4,Other states
+New Hampshire,Q42011,0.5247999999999999,5,Other states
+New Hampshire,Q12012,0.5253,6,Other states
+New Jersey,Q42010,0.3037,1,Other states
+New Jersey,Q12011,0.3109,2,Other states
+New Jersey,Q22011,0.3039,3,Other states
+New Jersey,Q32011,0.3109,4,Other states
+New Jersey,Q42011,0.3127,5,Other states
+New Jersey,Q12012,0.33340000000000003,6,Other states
+New York,Q42010,0.1249,1,Other states
+New York,Q12011,0.1267,2,Other states
+New York,Q22011,0.13140000000000002,3,Other states
+New York,Q32011,0.1451,4,Other states
+New York,Q42011,0.1277,5,Other states
+New York,Q12012,0.1229,6,Other states
+North Carolina,Q42010,0.5239,1,Other states
+North Carolina,Q12011,0.519,2,Other states
+North Carolina,Q22011,0.532,3,Other states
+North Carolina,Q32011,0.534,4,Other states
+North Carolina,Q42011,0.5284,5,Other states
+North Carolina,Q12012,0.5126,6,Other states
+Ohio,Q42010,0.5545,1,Other states
+Ohio,Q12011,0.5593,2,Other states
+Ohio,Q22011,0.5700999999999999,3,Other states
+Ohio,Q32011,0.5700999999999999,4,Other states
+Ohio,Q42011,0.5751,5,Other states
+Ohio,Q12012,0.5645,6,Other states
+Pennsylvania,Q42010,0.4531,1,Other states
+Pennsylvania,Q12011,0.4536,2,Other states
+Pennsylvania,Q22011,0.45530000000000004,3,Other states
+Pennsylvania,Q32011,0.4559,4,Other states
+Pennsylvania,Q42011,0.4551,5,Other states
+Pennsylvania,Q12012,0.45270000000000005,6,Other states
+South Carolina,Q42010,0.30829999999999996,1,Other states
+South Carolina,Q12011,0.26170000000000004,2,Other states
+South Carolina,Q22011,0.2556,3,Other states
+South Carolina,Q32011,0.2641,4,Other states
+South Carolina,Q42011,0.2966,5,Other states
+South Carolina,Q12012,0.228,6,Other states
+Tennessee,Q42010,0.3268,1,Other states
+Tennessee,Q12011,0.3249,2,Other states
+Tennessee,Q22011,0.3382,3,Other states
+Tennessee,Q32011,0.3428,4,Other states
+Tennessee,Q42011,0.3385,5,Other states
+Tennessee,Q12012,0.34,6,Other states
+Virginia,Q42010,0.2645,1,Other states
+Virginia,Q12011,0.36229999999999996,2,Other states
+Virginia,Q22011,0.3455,3,Other states
+Virginia,Q32011,0.359,4,Other states
+Virginia,Q42011,0.3443,5,Other states
+Virginia,Q12012,0.3701,6,Other states
+Washington,Q42010,0.5811,1,Other states
+Washington,Q12011,0.5893,2,Other states
+Washington,Q22011,0.5882000000000001,3,Other states
+Washington,Q32011,0.5846,4,Other states
+Washington,Q42011,0.5842,5,Other states
+Washington,Q12012,0.5947,6,Other states
+Wisconsin,Q42010,0.5735,1,Other states
+Wisconsin,Q12011,0.5710000000000001,2,Other states
+Wisconsin,Q22011,0.5720000000000001,3,Other states
+Wisconsin,Q32011,0.5688,4,Other states
+Wisconsin,Q42011,0.5660000000000001,5,Other states
+Wisconsin,Q12012,0.5814,6,Other states
+Wyoming,Q42010,0.5931000000000001,1,Other states
+Wyoming,Q12011,0.5946,2,Other states
+Wyoming,Q22011,0.5937,3,Other states
+Wyoming,Q32011,0.5911,4,Other states
+Wyoming,Q42011,0.5854,5,Other states
+Wyoming,Q12012,0.5881000000000001,6,Other states
