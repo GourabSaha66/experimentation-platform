@@ -1,0 +1,27 @@
+flowchart LR
+    U([Analyst]) --> W
+
+    subgraph Browser
+        W["React app<br/>upload CSV, pick method,<br/>read conclusion and charts"]
+    end
+
+    W -- "JSON / multipart over HTTP" --> A
+
+    subgraph Server["FastAPI service (one container)"]
+        A["main.py<br/>routes, validation,<br/>plain-English errors"]
+        A --> P["power.py<br/>sample size, power, MDE<br/>(statsmodels)"]
+        A --> T["ab_tests.py<br/>Welch t-test, chi-square,<br/>Bonferroni / Holm / BH"]
+        A --> S["sequential.py<br/>always-valid p-values<br/>(mSPRT)"]
+        A --> B["bayes.py<br/>P(B beats A)<br/>(PyMC)"]
+        A --> C["causal.py<br/>propensity matching,<br/>diff-in-diff, synthetic control<br/>(DoWhy, EconML, statsmodels)"]
+        A -. "one heavy job at a time" .- L{{"semaphore"}}
+        T --- X["common.py<br/>result schema, helpers"]
+        S --- X
+        B --- X
+        C --- X
+        P --- X
+    end
+
+    D[("sample_data/<br/>simulated + real CSVs")] --> A
+    Server --> R["Result JSON<br/>conclusion, key numbers,<br/>charts, warnings"]
+    R --> W

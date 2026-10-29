@@ -1,55 +1,55 @@
 {
-  "quick": true,
+  "quick": false,
   "ttest_and_power": {
-    "ttest_false_positive_rate": 0.06125,
-    "ttest_sims": 800,
+    "ttest_false_positive_rate": 0.049,
+    "ttest_sims": 4000,
     "calculator_n_per_group_d0.2": 394,
-    "ttest_empirical_power_at_calculator_n": 0.8025,
+    "ttest_empirical_power_at_calculator_n": 0.79125,
     "target_power": 0.8,
-    "ci95_coverage": 0.95,
-    "ci_sims": 300,
+    "ci95_coverage": 0.956,
+    "ci_sims": 1500,
     "proportions_n_per_group_10_to_11pct": 14745,
-    "chisq_empirical_power_at_calculator_n": 0.735,
-    "chisq_false_positive_rate": 0.0375,
-    "chisq_sims": 400
+    "chisq_empirical_power_at_calculator_n": 0.7885,
+    "chisq_false_positive_rate": 0.0475,
+    "chisq_sims": 2000
   },
   "sequential": {
-    "aa_trials": 400,
+    "aa_trials": 2000,
     "aa_users": 2000,
     "aa_looks": 10,
-    "aa_false_positive_naive_peeking": 0.25,
-    "aa_false_positive_sequential": 0.015,
-    "effect_trials": 120,
-    "effect_users": 6000,
-    "effect_size_sd": 0.12,
-    "power_fixed_single_look": 1.0,
-    "power_sequential": 0.9583333333333334,
-    "median_stop_users_when_detected": 2161.0,
-    "share_stopped_before_end": 0.991304347826087
+    "aa_false_positive_naive_peeking": 0.208,
+    "aa_false_positive_sequential": 0.0085,
+    "effect_trials": 600,
+    "effect_users": 4000,
+    "effect_size_sd": 0.09,
+    "power_fixed_single_look": 0.8433333333333334,
+    "power_sequential": 0.525,
+    "median_stop_users_when_detected": 2523.0,
+    "share_stopped_before_end": 0.9841269841269841
   },
   "multiple_testing": {
-    "simulations": 200,
+    "simulations": 1000,
     "hypotheses": 100,
     "truly_different": 20,
     "uncorrected": {
-      "family_wise_error_rate": 0.995,
-      "false_discovery_rate": 0.1811496198823312,
-      "power": 0.85
+      "family_wise_error_rate": 0.985,
+      "false_discovery_rate": 0.18278490851539142,
+      "power": 0.84875
     },
     "bonferroni": {
-      "family_wise_error_rate": 0.035,
-      "false_discovery_rate": 0.004579545454545455,
-      "power": 0.31625
+      "family_wise_error_rate": 0.048,
+      "false_discovery_rate": 0.007033802308802309,
+      "power": 0.3137
     },
     "holm": {
-      "family_wise_error_rate": 0.035,
-      "false_discovery_rate": 0.004460497835497836,
-      "power": 0.32325000000000004
+      "family_wise_error_rate": 0.049,
+      "false_discovery_rate": 0.007025703463203463,
+      "power": 0.31959999999999994
     },
     "bh": {
-      "family_wise_error_rate": 0.355,
-      "false_discovery_rate": 0.03637080276534611,
-      "power": 0.62525
+      "family_wise_error_rate": 0.41,
+      "false_discovery_rate": 0.0415748854430743,
+      "power": 0.6073
     }
   },
   "bayesian": {
@@ -61,7 +61,7 @@
         "abs_difference": 0.007539999999999991,
         "rhat": 1.0025293931818418,
         "ess_min": 3962.0198411498577,
-        "seconds": 2.3915748596191406
+        "seconds": 6.62975549697876
       },
       {
         "case": "195/1971 vs 257/2029",
@@ -70,7 +70,7 @@
         "abs_difference": 0.0006774999999999975,
         "rhat": 1.0005581811217281,
         "ess_min": 4046.3298296705466,
-        "seconds": 1.5613510608673096
+        "seconds": 1.6878926753997803
       },
       {
         "case": "30/300 vs 45/300",
@@ -79,7 +79,7 @@
         "abs_difference": 0.002042499999999947,
         "rhat": 1.0000378552962355,
         "ess_min": 3746.3790027189766,
-        "seconds": 2.4334144592285156
+        "seconds": 1.7246525287628174
       },
       {
         "case": "500/5000 vs 560/5000",
@@ -88,7 +88,7 @@
         "abs_difference": 0.0053275000000000405,
         "rhat": 0.9997805294959278,
         "ess_min": 4219.114558672347,
-        "seconds": 2.5503807067871094
+        "seconds": 1.5006563663482666
       },
       {
         "case": "8/80 vs 15/80",
@@ -97,7 +97,7 @@
         "abs_difference": 0.0004775000000000196,
         "rhat": 1.0007701874912092,
         "ess_min": 3501.192768630747,
-        "seconds": 2.2706191539764404
+        "seconds": 1.5435514450073242
       },
       {
         "case": "1000/10000 vs 1090/10000",
@@ -106,7 +106,7 @@
         "abs_difference": 0.00185499999999994,
         "rhat": 0.9999672695833071,
         "ess_min": 3595.1012562806795,
-        "seconds": 2.212125301361084
+        "seconds": 1.4928052425384521
       }
     ],
     "max_abs_difference": 0.007539999999999991,
@@ -115,11 +115,11 @@
       "diff_mean_full": 1.8122776951458193,
       "prob_fast": 1.0,
       "prob_full": 1.0,
-      "seconds_fast": 1.8878989219665527,
-      "seconds_full": 1.670513391494751
+      "seconds_fast": 1.653881549835205,
+      "seconds_full": 1.5305638313293457
     },
-    "credible_interval_coverage": 1.0,
-    "coverage_runs": 24
+    "credible_interval_coverage": 0.9666666666666667,
+    "coverage_runs": 120
   },
   "causal": {
     "lalonde": {
@@ -127,14 +127,14 @@
       "naive_cps_comparison": -8497.516142636992,
       "psm_att": 1626.9603562162163,
       "psm_ci": [
-        -451.3617218923512,
-        3364.4323706941664
+        -317.5517463544832,
+        3301.650017882026
       ],
-      "dowhy_psm": 11.805466702702587,
+      "dowhy_psm": 1642.8639130810811,
       "dowhy_placebo": {
         "name": "Placebo treatment (shuffled treatment labels)",
-        "placebo_effect": -5.4973162864864396,
-        "p_value": 0.49775053129634705
+        "placebo_effect": -168.0077162216216,
+        "p_value": 0.4205086896109118
       },
       "econml_dr": {
         "available": true,
@@ -151,41 +151,41 @@
       "treated_matched": "185 of 185",
       "worst_balance_after": 0.13035090135470617,
       "worst_balance_before": 2.4277468150409307,
-      "seconds": 3.006282329559326
+      "seconds": 7.223424673080444
     },
     "simulated_psm": {
       "true_effect": 2.0,
-      "runs": 20,
-      "naive_mean": 3.6330108792370206,
-      "psm_mean": 2.0140459152172516,
-      "psm_rmse": 0.14247399114876202,
-      "dowhy_mean_first8": 2.025419299698339,
+      "runs": 40,
+      "naive_mean": 3.6244966000300423,
+      "psm_mean": 2.0442808709863534,
+      "psm_rmse": 0.1275513209681878,
+      "dowhy_mean_first8": 2.010462407153307,
       "econml_mean_first8": 1.9874351537468362
     },
     "did": {
       "true_effect": 3.0,
-      "runs": 20,
-      "mean_estimate": 2.9957408854166574,
-      "rmse": 0.21696336882337283,
-      "ci_coverage_clustered": 0.85,
+      "runs": 60,
+      "mean_estimate": 3.0110967881944335,
+      "rmse": 0.21127797022950703,
+      "ci_coverage_clustered": 0.9166666666666666,
       "false_positive_rate_no_effect_placebo": 0.0,
-      "pretrend_flag_rate_when_parallel": 0.05,
+      "pretrend_flag_rate_when_parallel": 0.08333333333333333,
       "pretrend_flag_rate_when_diverging": 1.0
     },
     "organ_donations": {
       "estimate": -0.022458974358974315,
-      "ci_low": -0.03436133613802008,
-      "ci_high": -0.010556612579928548,
-      "p_value": 0.00021702842531335254,
+      "ci_low": -0.03494168078582109,
+      "ci_high": -0.009976267932127542,
+      "p_value": 0.0010215525217931584,
       "placebo_p": 0.18518518518518517,
-      "pretrend_p": 0.5576986116631479
+      "pretrend_p": 0.562754258614534
     },
     "synthetic_control": {
       "true_effect": -4.0,
-      "runs": 20,
-      "mean_estimate": -4.032473421217117,
-      "rmse": 0.21495334860413848,
-      "false_positive_rate_at_p0.1_no_effect": 0.1
+      "runs": 30,
+      "mean_estimate": -4.003422439074851,
+      "rmse": 0.19584586700834536,
+      "false_positive_rate_at_p0.1_no_effect": 0.16666666666666666
     },
     "texas": {
       "avg_post_gap": 21013.18795116065,
@@ -202,49 +202,49 @@
         "method": "ttest",
         "rows": 20000,
         "status": 200,
-        "seconds": 0.09
+        "seconds": 0.16
       },
       {
         "example": "ab_chisq",
         "method": "chisq",
         "rows": 20000,
         "status": 200,
-        "seconds": 0.06
+        "seconds": 0.1
       },
       {
         "example": "multi",
         "method": "multiple",
         "rows": 6000,
         "status": 200,
-        "seconds": 0.47
+        "seconds": 1.12
       },
       {
         "example": "seq",
         "method": "sequential",
         "rows": 20000,
         "status": 200,
-        "seconds": 0.07
+        "seconds": 0.08
       },
       {
         "example": "bayes",
         "method": "bayes",
         "rows": 20000,
         "status": 200,
-        "seconds": 1.54
+        "seconds": 1.64
       },
       {
         "example": "psm_lalonde",
         "method": "psm",
         "rows": 16177,
         "status": 200,
-        "seconds": 4.42
+        "seconds": 4.25
       },
       {
         "example": "psm_sim",
         "method": "psm",
         "rows": 4000,
         "status": 200,
-        "seconds": 2.04
+        "seconds": 2.0
       },
       {
         "example": "did_organ",
@@ -265,16 +265,16 @@
         "method": "synth",
         "rows": 816,
         "status": 200,
-        "seconds": 0.45
+        "seconds": 0.53
       },
       {
         "example": "synth_sim",
         "method": "synth",
         "rows": 780,
         "status": 200,
-        "seconds": 0.07
+        "seconds": 0.13
       }
     ],
-    "power_endpoint_ms": 59.749603271484375
+    "power_endpoint_ms": 60.02589464187622
   }
 }

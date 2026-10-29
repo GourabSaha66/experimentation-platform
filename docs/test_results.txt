@@ -1,0 +1,68 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.16, pytest-9.1.1, pluggy-1.7.0 -- /home/claude/experimentation-platform/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/claude/experimentation-platform
+configfile: pytest.ini
+testpaths: tests
+plugins: anyio-4.15.1
+collecting ... collected 52 items
+
+tests/test_ab_tests.py::test_welch_matches_scipy PASSED                  [  1%]
+tests/test_ab_tests.py::test_type_one_error_is_about_five_percent PASSED [  3%]
+tests/test_ab_tests.py::test_confidence_interval_coverage PASSED         [  5%]
+tests/test_ab_tests.py::test_two_proportions_matches_scipy_and_detects_effect PASSED [  7%]
+tests/test_ab_tests.py::test_srm_flags_broken_split PASSED               [  9%]
+tests/test_ab_tests.py::test_analyze_ttest_end_to_end_with_warning PASSED [ 11%]
+tests/test_ab_tests.py::test_chisq_binary_and_categorical PASSED         [ 13%]
+tests/test_ab_tests.py::test_unknown_group_label_is_a_clear_error PASSED [ 15%]
+tests/test_ab_tests.py::test_corrections_match_statsmodels_and_known_example PASSED [ 17%]
+tests/test_ab_tests.py::test_bonferroni_controls_family_wise_error_and_bh_controls_fdr PASSED [ 19%]
+tests/test_ab_tests.py::test_multiple_from_data_finds_real_metrics PASSED [ 21%]
+tests/test_api.py::test_health_and_catalog PASSED                        [ 23%]
+tests/test_api.py::test_power_endpoint_and_validation PASSED             [ 25%]
+tests/test_api.py::test_every_fast_example_runs_through_the_api[ab_ttest] PASSED [ 26%]
+tests/test_api.py::test_every_fast_example_runs_through_the_api[ab_chisq] PASSED [ 28%]
+tests/test_api.py::test_every_fast_example_runs_through_the_api[multi] PASSED [ 30%]
+tests/test_api.py::test_every_fast_example_runs_through_the_api[seq] PASSED [ 32%]
+tests/test_api.py::test_every_fast_example_runs_through_the_api[did_organ] PASSED [ 34%]
+tests/test_api.py::test_every_fast_example_runs_through_the_api[did_sim] PASSED [ 36%]
+tests/test_api.py::test_every_fast_example_runs_through_the_api[synth_texas] PASSED [ 38%]
+tests/test_api.py::test_every_fast_example_runs_through_the_api[synth_sim] PASSED [ 40%]
+tests/test_api.py::test_inspect_describes_columns PASSED                 [ 42%]
+tests/test_api.py::test_helpful_errors PASSED                            [ 44%]
+tests/test_api.py::test_sample_download_is_confined_to_sample_dir PASSED [ 46%]
+tests/test_bayes.py::test_binary_matches_exact_beta_posterior PASSED     [ 48%]
+tests/test_bayes.py::test_no_difference_gives_middling_probability PASSED [ 50%]
+tests/test_bayes.py::test_numeric_sufficient_statistics_equal_full_data_model PASSED [ 51%]
+tests/test_bayes.py::test_numeric_credible_interval_covers_true_difference PASSED [ 53%]
+tests/test_bayes.py::test_analyze_bayes_end_to_end PASSED                [ 55%]
+tests/test_causal.py::test_psm_removes_confounding_bias PASSED           [ 57%]
+tests/test_causal.py::test_psm_crosschecks_agree_on_simulated_data PASSED [ 59%]
+tests/test_causal.py::test_psm_input_validation PASSED                   [ 61%]
+tests/test_causal.py::test_did_recovers_effect_and_flags_broken_parallel_trends PASSED [ 63%]
+tests/test_causal.py::test_did_placebo_false_positive_rate_is_low_without_effect PASSED [ 65%]
+tests/test_causal.py::test_synthetic_control_recovers_effect_and_weights_are_valid PASSED [ 67%]
+tests/test_causal.py::test_synthetic_control_no_effect_is_not_significant PASSED [ 69%]
+tests/test_causal.py::test_synthetic_control_errors PASSED               [ 71%]
+tests/test_causal.py::test_dowhy_crosscheck_does_not_depend_on_covariate_units PASSED [ 73%]
+tests/test_power.py::test_sample_size_matches_published_value PASSED     [ 75%]
+tests/test_power.py::test_means_matches_textbook_formula PASSED          [ 76%]
+tests/test_power.py::test_round_trip_power_and_mde PASSED                [ 78%]
+tests/test_power.py::test_unequal_groups_and_duration PASSED             [ 80%]
+tests/test_power.py::test_more_power_needs_more_users PASSED             [ 82%]
+tests/test_power.py::test_bad_input_is_a_user_error[kwargs0] PASSED      [ 84%]
+tests/test_power.py::test_bad_input_is_a_user_error[kwargs1] PASSED      [ 86%]
+tests/test_power.py::test_bad_input_is_a_user_error[kwargs2] PASSED      [ 88%]
+tests/test_power.py::test_bad_input_is_a_user_error[kwargs3] PASSED      [ 90%]
+tests/test_sequential.py::test_peeking_inflates_ordinary_p_values_but_not_sequential PASSED [ 92%]
+tests/test_sequential.py::test_stops_early_on_a_real_effect_and_interval_covers_truth PASSED [ 94%]
+tests/test_sequential.py::test_no_effect_stays_inconclusive PASSED       [ 96%]
+tests/test_sequential.py::test_confidence_sequence_is_nested_and_p_values_monotone PASSED [ 98%]
+tests/test_sequential.py::test_too_little_data_is_a_user_error PASSED    [100%]
+
+=============================== warnings summary ===============================
+tests/test_bayes.py::test_analyze_bayes_end_to_end
+    return 0.5 * np.dot(x, v_out)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=================== 52 passed, 1 warning in 76.13s (0:01:16) ===================
