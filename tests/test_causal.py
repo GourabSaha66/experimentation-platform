@@ -72,3 +72,15 @@ def test_synthetic_control_errors():
     df = simulate_synth(seed=1)
     with pytest.raises(UserError, match="not in column"):
         causal.analyze_synth(df, "outcome", "unit", "period", "nobody", 21)
+
+
+def test_dowhy_crosscheck_does_not_depend_on_covariate_units():
+    # Regression test: DoWhy's own logistic regression does not converge on unscaled covariates, which made
+    # its estimate drift between runs. The wrapper standardises first, so rescaling a covariate changes nothing.
+    df = simulate_observational(n=2000, true_effect=2.0, seed=8)
+    a, covs = causal._prep(df, "treated", "outcome", ["age", "income", "prior_score"])
+    b = a.copy()
+    b["income"] = b["income"] * 1000.0
+    ra = causal._dowhy_psm(a, "treated", "outcome", covs, False, 5, 0)["att"]
+    rb = causal._dowhy_psm(b, "treated", "outcome", covs, False, 5, 0)["att"]
+    assert ra == pytest.approx(rb, abs=1e-6)

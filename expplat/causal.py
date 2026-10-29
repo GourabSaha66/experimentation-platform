@@ -99,9 +99,15 @@ def _smd(x: np.ndarray, t: np.ndarray, w_c: np.ndarray | None = None, rows_t: np
 def _dowhy_psm(d: pd.DataFrame, treatment: str, outcome: str, covs: list[str], refute: bool, n_sims: int, seed: int) -> dict:
     from dowhy import CausalModel  # imported lazily: heavy
     np.random.seed(seed)
+    # DoWhy fits an unscaled logistic regression. With covariates on very different scales (age vs. earnings in
+    # dollars) it stops before converging and the estimate then changes from run to run, so standardise first.
+    z = d[[treatment, outcome] + covs].copy()
+    for c in covs:
+        sd = z[c].std()
+        z[c] = (z[c] - z[c].mean()) / (sd if sd > 0 else 1.0)
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
-        model = CausalModel(data=d[[treatment, outcome] + covs], treatment=treatment, outcome=outcome, common_causes=covs)
+        model = CausalModel(data=z, treatment=treatment, outcome=outcome, common_causes=covs)
         ident = model.identify_effect(proceed_when_unidentifiable=True)
         est = model.estimate_effect(ident, method_name="backdoor.propensity_score_matching", target_units="att")
         out = {"att": float(est.value), "refutation": None}
@@ -268,7 +274,7 @@ def _did_ols(d: pd.DataFrame, units: np.ndarray | None):
     X = sm.add_constant(d[["treated", "post"]].assign(inter=d["treated"] * d["post"]).to_numpy(float))
     m = sm.OLS(d["y"].to_numpy(float), X)
     if units is not None:
-        return m.fit(cov_type="cluster", cov_kwds={"groups": pd.factorize(units)[0]})
+        return m.fit(cov_type="cluster", cov_kwds={"groups": pd.factorize(units)[0]}, use_t=True)
     return m.fit(cov_type="HC1")
 
 
@@ -302,7 +308,7 @@ def analyze_did(df: pd.DataFrame, outcome: str, group_col: str, treated_value: s
     if pre["time"].nunique() >= 3:
         Xp = sm.add_constant(pd.DataFrame({"treated": pre["treated"], "time": pre["time"], "tt": pre["treated"] * pre["time"]}).to_numpy(float))
         mp = sm.OLS(pre["y"].to_numpy(float), Xp)
-        fp = (mp.fit(cov_type="cluster", cov_kwds={"groups": pd.factorize(pre["unit"])[0]}) if unit_col else mp.fit(cov_type="HC1"))
+        fp = (mp.fit(cov_type="cluster", cov_kwds={"groups": pd.factorize(pre["unit"])[0]}, use_t=True) if unit_col else mp.fit(cov_type="HC1"))
         pt_p, pt_slope = float(fp.pvalues[3]), float(fp.params[3])
         if pt_p < 0.05:
             warnings_.append(f"The groups were already trending differently before the change ({pfmt(pt_p)}). The parallel-trends "

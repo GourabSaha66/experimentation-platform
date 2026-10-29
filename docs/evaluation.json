@@ -1,0 +1,280 @@
+{
+  "quick": true,
+  "ttest_and_power": {
+    "ttest_false_positive_rate": 0.06125,
+    "ttest_sims": 800,
+    "calculator_n_per_group_d0.2": 394,
+    "ttest_empirical_power_at_calculator_n": 0.8025,
+    "target_power": 0.8,
+    "ci95_coverage": 0.95,
+    "ci_sims": 300,
+    "proportions_n_per_group_10_to_11pct": 14745,
+    "chisq_empirical_power_at_calculator_n": 0.735,
+    "chisq_false_positive_rate": 0.0375,
+    "chisq_sims": 400
+  },
+  "sequential": {
+    "aa_trials": 400,
+    "aa_users": 2000,
+    "aa_looks": 10,
+    "aa_false_positive_naive_peeking": 0.25,
+    "aa_false_positive_sequential": 0.015,
+    "effect_trials": 120,
+    "effect_users": 6000,
+    "effect_size_sd": 0.12,
+    "power_fixed_single_look": 1.0,
+    "power_sequential": 0.9583333333333334,
+    "median_stop_users_when_detected": 2161.0,
+    "share_stopped_before_end": 0.991304347826087
+  },
+  "multiple_testing": {
+    "simulations": 200,
+    "hypotheses": 100,
+    "truly_different": 20,
+    "uncorrected": {
+      "family_wise_error_rate": 0.995,
+      "false_discovery_rate": 0.1811496198823312,
+      "power": 0.85
+    },
+    "bonferroni": {
+      "family_wise_error_rate": 0.035,
+      "false_discovery_rate": 0.004579545454545455,
+      "power": 0.31625
+    },
+    "holm": {
+      "family_wise_error_rate": 0.035,
+      "false_discovery_rate": 0.004460497835497836,
+      "power": 0.32325000000000004
+    },
+    "bh": {
+      "family_wise_error_rate": 0.355,
+      "false_discovery_rate": 0.03637080276534611,
+      "power": 0.62525
+    }
+  },
+  "bayesian": {
+    "binary_vs_exact": [
+      {
+        "case": "100/1000 vs 100/1000",
+        "pymc_prob_b_beats_a": 0.49375,
+        "exact_prob": 0.50129,
+        "abs_difference": 0.007539999999999991,
+        "rhat": 1.0025293931818418,
+        "ess_min": 3962.0198411498577,
+        "seconds": 2.3915748596191406
+      },
+      {
+        "case": "195/1971 vs 257/2029",
+        "pymc_prob_b_beats_a": 0.9965,
+        "exact_prob": 0.9971775,
+        "abs_difference": 0.0006774999999999975,
+        "rhat": 1.0005581811217281,
+        "ess_min": 4046.3298296705466,
+        "seconds": 1.5613510608673096
+      },
+      {
+        "case": "30/300 vs 45/300",
+        "pymc_prob_b_beats_a": 0.96525,
+        "exact_prob": 0.9672925,
+        "abs_difference": 0.002042499999999947,
+        "rhat": 1.0000378552962355,
+        "ess_min": 3746.3790027189766,
+        "seconds": 2.4334144592285156
+      },
+      {
+        "case": "500/5000 vs 560/5000",
+        "pymc_prob_b_beats_a": 0.97975,
+        "exact_prob": 0.9744225,
+        "abs_difference": 0.0053275000000000405,
+        "rhat": 0.9997805294959278,
+        "ess_min": 4219.114558672347,
+        "seconds": 2.5503807067871094
+      },
+      {
+        "case": "8/80 vs 15/80",
+        "pymc_prob_b_beats_a": 0.93925,
+        "exact_prob": 0.9397275,
+        "abs_difference": 0.0004775000000000196,
+        "rhat": 1.0007701874912092,
+        "ess_min": 3501.192768630747,
+        "seconds": 2.2706191539764404
+      },
+      {
+        "case": "1000/10000 vs 1090/10000",
+        "pymc_prob_b_beats_a": 0.983,
+        "exact_prob": 0.981145,
+        "abs_difference": 0.00185499999999994,
+        "rhat": 0.9999672695833071,
+        "ess_min": 3595.1012562806795,
+        "seconds": 2.212125301361084
+      }
+    ],
+    "max_abs_difference": 0.007539999999999991,
+    "numeric_fast_vs_full": {
+      "diff_mean_fast": 1.8104249629290718,
+      "diff_mean_full": 1.8122776951458193,
+      "prob_fast": 1.0,
+      "prob_full": 1.0,
+      "seconds_fast": 1.8878989219665527,
+      "seconds_full": 1.670513391494751
+    },
+    "credible_interval_coverage": 1.0,
+    "coverage_runs": 24
+  },
+  "causal": {
+    "lalonde": {
+      "experimental_benchmark": 1794.342404270271,
+      "naive_cps_comparison": -8497.516142636992,
+      "psm_att": 1626.9603562162163,
+      "psm_ci": [
+        -451.3617218923512,
+        3364.4323706941664
+      ],
+      "dowhy_psm": 11.805466702702587,
+      "dowhy_placebo": {
+        "name": "Placebo treatment (shuffled treatment labels)",
+        "placebo_effect": -5.4973162864864396,
+        "p_value": 0.49775053129634705
+      },
+      "econml_dr": {
+        "available": true,
+        "ate": 484.62613574609304,
+        "ci_low": -1905.1102649989912,
+        "ci_high": 2874.362536491177,
+        "n_used": 692,
+        "n_treated_used": 155,
+        "trim": [
+          0.05,
+          0.95
+        ]
+      },
+      "treated_matched": "185 of 185",
+      "worst_balance_after": 0.13035090135470617,
+      "worst_balance_before": 2.4277468150409307,
+      "seconds": 3.006282329559326
+    },
+    "simulated_psm": {
+      "true_effect": 2.0,
+      "runs": 20,
+      "naive_mean": 3.6330108792370206,
+      "psm_mean": 2.0140459152172516,
+      "psm_rmse": 0.14247399114876202,
+      "dowhy_mean_first8": 2.025419299698339,
+      "econml_mean_first8": 1.9874351537468362
+    },
+    "did": {
+      "true_effect": 3.0,
+      "runs": 20,
+      "mean_estimate": 2.9957408854166574,
+      "rmse": 0.21696336882337283,
+      "ci_coverage_clustered": 0.85,
+      "false_positive_rate_no_effect_placebo": 0.0,
+      "pretrend_flag_rate_when_parallel": 0.05,
+      "pretrend_flag_rate_when_diverging": 1.0
+    },
+    "organ_donations": {
+      "estimate": -0.022458974358974315,
+      "ci_low": -0.03436133613802008,
+      "ci_high": -0.010556612579928548,
+      "p_value": 0.00021702842531335254,
+      "placebo_p": 0.18518518518518517,
+      "pretrend_p": 0.5576986116631479
+    },
+    "synthetic_control": {
+      "true_effect": -4.0,
+      "runs": 20,
+      "mean_estimate": -4.032473421217117,
+      "rmse": 0.21495334860413848,
+      "false_positive_rate_at_p0.1_no_effect": 0.1
+    },
+    "texas": {
+      "avg_post_gap": 21013.18795116065,
+      "relative_gap_pct": 66.24442881330818,
+      "p_value": 0.17647058823529413,
+      "pre_rmspe": 862.8915610550404,
+      "ratio": 26.66149685770394
+    }
+  },
+  "api_speed": {
+    "analyses": [
+      {
+        "example": "ab_ttest",
+        "method": "ttest",
+        "rows": 20000,
+        "status": 200,
+        "seconds": 0.09
+      },
+      {
+        "example": "ab_chisq",
+        "method": "chisq",
+        "rows": 20000,
+        "status": 200,
+        "seconds": 0.06
+      },
+      {
+        "example": "multi",
+        "method": "multiple",
+        "rows": 6000,
+        "status": 200,
+        "seconds": 0.47
+      },
+      {
+        "example": "seq",
+        "method": "sequential",
+        "rows": 20000,
+        "status": 200,
+        "seconds": 0.07
+      },
+      {
+        "example": "bayes",
+        "method": "bayes",
+        "rows": 20000,
+        "status": 200,
+        "seconds": 1.54
+      },
+      {
+        "example": "psm_lalonde",
+        "method": "psm",
+        "rows": 16177,
+        "status": 200,
+        "seconds": 4.42
+      },
+      {
+        "example": "psm_sim",
+        "method": "psm",
+        "rows": 4000,
+        "status": 200,
+        "seconds": 2.04
+      },
+      {
+        "example": "did_organ",
+        "method": "did",
+        "rows": 162,
+        "status": 200,
+        "seconds": 0.05
+      },
+      {
+        "example": "did_sim",
+        "method": "did",
+        "rows": 480,
+        "status": 200,
+        "seconds": 0.06
+      },
+      {
+        "example": "synth_texas",
+        "method": "synth",
+        "rows": 816,
+        "status": 200,
+        "seconds": 0.45
+      },
+      {
+        "example": "synth_sim",
+        "method": "synth",
+        "rows": 780,
+        "status": 200,
+        "seconds": 0.07
+      }
+    ],
+    "power_endpoint_ms": 59.749603271484375
+  }
+}
