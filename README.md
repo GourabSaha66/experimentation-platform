@@ -6,7 +6,7 @@ Built for assignment DS-04 (Data Science track). Stack: **FastAPI**, **statsmode
 
 ![Sequential test result](docs/screenshots/05_sequential.png)
 
-**Live demo:** _add the Hugging Face link here after deploying (see [docs/deployment.md](docs/deployment.md))_
+**Live demo:** _add the Render link here after deploying (see [docs/deployment.md](docs/deployment.md))_
 
 ## What it does
 
@@ -65,7 +65,7 @@ uvicorn expplat.main:app --port 8000
 
 Open http://127.0.0.1:8000. Click a method, then one of the **examples** under "Add your data" to see it work without any setup. Interactive API docs are at http://127.0.0.1:8000/docs.
 
-More detail (development mode, Docker, free public hosting): [docs/deployment.md](docs/deployment.md).
+More detail (development mode, Docker, free public hosting on Render): [docs/deployment.md](docs/deployment.md).
 
 ## Tests
 
@@ -102,7 +102,6 @@ sample_data/        CSVs used by the examples (see docs/data_dictionary.md)
 scripts/            make_sample_data.py, evaluate.py, e2e_screenshots.py
 tests/              pytest suite
 docs/               architecture, API reference, data dictionary, deployment, evaluation
-deploy/             Hugging Face Space settings
 Dockerfile          one image for API + React app
 ```
 

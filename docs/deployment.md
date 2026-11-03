@@ -23,30 +23,24 @@ For front-end development, run `uvicorn expplat.main:app --port 8000` in one ter
 
 With Docker: `docker build -t experiment-lab .` then `docker run -p 7860:7860 experiment-lab` and open http://localhost:7860.
 
-## Public demo on Hugging Face Spaces (free)
+## Public demo on Render (free plan, no card)
 
-Hugging Face Spaces runs Docker images for free (2 CPU cores, 16 GB memory), which is enough for PyMC and EconML. A typical free host with 512 MB of memory is not.
+Render can run the Docker image on its free plan. The free plan has **512 MB of memory and a shared slice of one CPU**, and this app's peak memory with every method used is about 470 MB, so it fits but with little to spare. Treat the hosted demo as a convenience: if it is slow or restarts, the same app runs locally in a minute (see above), and the repository includes screenshots of every method.
 
-1. Create a free account at https://huggingface.co and make an access token with **write** permission (Settings, Access Tokens).
-2. Create a Space: https://huggingface.co/new-space. Choose **Docker** (blank template), **Public**, free CPU hardware. Note its address, `https://huggingface.co/spaces/<your-username>/<space-name>`.
-3. From the project folder:
+(Hugging Face Docker Spaces would have more memory, but they now need a paid plan.)
 
-```powershell
-git remote add space https://huggingface.co/spaces/<your-username>/<space-name>
-git checkout -b space
-copy deploy\hf_space_README.md README.md
-git add README.md
-git commit -m "Hugging Face Space configuration"
-git push space space:main --force
-git checkout main
-```
-
-When asked for a password, paste the access token. The Space builds the image (about 5 to 10 minutes the first time) and then shows the app at `https://<your-username>-<space-name>.hf.space`.
-
-The `space` branch only differs from `main` in its `README.md` (Hugging Face reads its settings from the first lines of that file), so keep working on `main` and push to GitHub as usual.
+1. Push the project to GitHub (done if you can see it on github.com).
+2. Sign in at https://render.com with your GitHub account.
+3. **New** then **Web Service**, choose **Build and deploy from a Git repository**, and select the `experimentation-platform` repository.
+4. Settings:
+   * **Language / Runtime:** Docker (Render finds the `Dockerfile` by itself)
+   * **Branch:** `main`
+   * **Instance type:** Free
+5. Click **Create Web Service**. The first build takes about 10 to 15 minutes. The service address looks like `https://experimentation-platform-xxxx.onrender.com`.
 
 ### Things to know about the free demo
 
-* The Space goes to sleep after a period of inactivity and takes a minute to wake.
-* The first Bayesian analysis after a wake-up is slower because the sampler is compiled once (a few seconds).
+* The service falls asleep after about 15 minutes without visitors and takes roughly a minute to wake up. Open it once before showing it.
+* The first Bayesian analysis after waking is the slowest (the sampler is compiled once). Later runs are faster.
+* If the service shows **Out of memory** in its logs, only one heavy analysis should be run at a time; restarting the service from the Render dashboard clears it.
 * Uploaded files are used only to answer the request and are not kept afterwards.
