@@ -26,7 +26,7 @@ Every result has the same structure: a conclusion in plain English, key numbers,
 
 ## Results at a glance
 
-All of these come from `python scripts/evaluate.py` (fixed seeds; tables in [docs/evaluation.md](docs/evaluation.md)).
+All of these come from `python scripts/evaluate.py` (fixed seeds; tables in [docs/evaluation.md](docs/evaluation.md)), run on a Windows laptop (Intel i3, 8 GB memory, Python 3.10.6, PyMC 5.25.1 in its pure-Python mode because the machine has no C headers). With PyMC's compiled mode the Bayesian step takes about 1.6 s instead of 14.5 s, and a run of the same script on Linux with Python 3.13 gave the same results to within a few percent (LaLonde matching 1,627 instead of 1,722).
 
 | Check | Result |
 |---|---|
@@ -39,13 +39,13 @@ All of these come from `python scripts/evaluate.py` (fixed seeds; tables in [doc
 | Multiple testing, 100 hypotheses, 20 real: chance of any false positive (none / Bonferroni / BH) | 98.5% / 4.8% / 41.0% |
 | Multiple testing: false discovery rate (none / Bonferroni / BH) | 18.3% / 0.7% / 4.2% |
 | PyMC vs exact Beta posterior for P(B beats A) | largest difference 0.0075 over 6 cases, R-hat at most 1.003 |
-| LaLonde job training: randomised benchmark / naive / matching / DoWhy / EconML | 1,794 / -8,498 / **1,627** / **1,643** / 485 |
+| LaLonde job training: randomised benchmark / naive / matching / DoWhy / EconML | 1,794 / -8,498 / **1,722** / **1,732** / 472 |
 | Simulated confounded data (true effect 2.0): naive vs matching | 3.62 vs **2.04** |
 | Difference-in-differences, simulated (true 3.0) | 3.01 on average |
 | Synthetic control, simulated (true -4.0) | -4.00 on average |
-| Time through the API (16,000-row matching with cross-checks / Bayesian / t-test) | 4.3 s / 1.6 s / 0.2 s |
+| Time through the API (16,000-row matching with cross-checks / Bayesian / t-test) | 4.5 s / 14.5 s / 0.2 s |
 
-The same file lists the weaker results too: the sequential test gives up power in return for safe peeking, EconML's estimate on LaLonde is far from the benchmark, and on the Texas data the synthetic control does not fit well enough for a confident claim.
+Also worth knowing: fitting the Bayesian numeric model on sufficient statistics took 24 s against 184 s for the full-data model with the same answer (difference in means 1.807 vs 1.816). The same file lists the weaker results too: the sequential test gives up power in return for safe peeking, EconML's estimate on LaLonde is far from the benchmark, and on the Texas data the synthetic control does not fit well enough for a confident claim.
 
 ## Quick start
 
@@ -82,6 +82,7 @@ What the tests check, besides "it runs":
 * **Known answers.** Matching removes the bias in confounded simulated data; difference-in-differences and synthetic control recover planted effects; the pre-trend test flags groups that drift apart.
 * **Peeking.** Ordinary p-values checked ten times give about 20% false alarms; the sequential test stays under 5%.
 * **PyMC against exact maths.** For yes/no metrics the Bayesian answer is compared with the closed-form Beta posterior.
+* **Compiler fallback.** On a computer with a C++ compiler but no Python header files (a plain Windows install), PyMC's compiled sampler fails. The Bayesian module catches that, switches PyTensor to its pure-Python mode, and retries; tests simulate this with a deliberately broken compiler.
 * **Regression test.** DoWhy's matching estimate used to drift between runs because its logistic regression did not converge on unscaled covariates (age next to earnings in dollars). The wrapper now standardises covariates, and a test checks that rescaling a column changes nothing.
 
 ## Project layout

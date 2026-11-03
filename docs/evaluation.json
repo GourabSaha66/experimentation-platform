@@ -61,62 +61,62 @@
         "abs_difference": 0.007539999999999991,
         "rhat": 1.0025293931818418,
         "ess_min": 3962.0198411498577,
-        "seconds": 6.62975549697876
+        "seconds": 16.7992000579834
       },
       {
         "case": "195/1971 vs 257/2029",
         "pymc_prob_b_beats_a": 0.9965,
         "exact_prob": 0.9971775,
         "abs_difference": 0.0006774999999999975,
-        "rhat": 1.0005581811217281,
+        "rhat": 1.000558181121728,
         "ess_min": 4046.3298296705466,
-        "seconds": 1.6878926753997803
+        "seconds": 14.04431676864624
       },
       {
         "case": "30/300 vs 45/300",
         "pymc_prob_b_beats_a": 0.96525,
         "exact_prob": 0.9672925,
         "abs_difference": 0.002042499999999947,
-        "rhat": 1.0000378552962355,
+        "rhat": 1.0000378552962284,
         "ess_min": 3746.3790027189766,
-        "seconds": 1.7246525287628174
+        "seconds": 13.025707721710205
       },
       {
         "case": "500/5000 vs 560/5000",
         "pymc_prob_b_beats_a": 0.97975,
         "exact_prob": 0.9744225,
         "abs_difference": 0.0053275000000000405,
-        "rhat": 0.9997805294959278,
+        "rhat": 0.9997805294959276,
         "ess_min": 4219.114558672347,
-        "seconds": 1.5006563663482666
+        "seconds": 13.06455945968628
       },
       {
         "case": "8/80 vs 15/80",
         "pymc_prob_b_beats_a": 0.93925,
         "exact_prob": 0.9397275,
         "abs_difference": 0.0004775000000000196,
-        "rhat": 1.0007701874912092,
+        "rhat": 1.0007701874911967,
         "ess_min": 3501.192768630747,
-        "seconds": 1.5435514450073242
+        "seconds": 12.826761722564697
       },
       {
         "case": "1000/10000 vs 1090/10000",
         "pymc_prob_b_beats_a": 0.983,
         "exact_prob": 0.981145,
         "abs_difference": 0.00185499999999994,
-        "rhat": 0.9999672695833071,
-        "ess_min": 3595.1012562806795,
-        "seconds": 1.4928052425384521
+        "rhat": 0.9999672695833108,
+        "ess_min": 3595.1012562806827,
+        "seconds": 13.494033813476562
       }
     ],
     "max_abs_difference": 0.007539999999999991,
     "numeric_fast_vs_full": {
-      "diff_mean_fast": 1.8104249629290718,
-      "diff_mean_full": 1.8122776951458193,
+      "diff_mean_fast": 1.8074156279854385,
+      "diff_mean_full": 1.8156976768033903,
       "prob_fast": 1.0,
       "prob_full": 1.0,
-      "seconds_fast": 1.653881549835205,
-      "seconds_full": 1.5305638313293457
+      "seconds_fast": 24.126741409301758,
+      "seconds_full": 183.63876700401306
     },
     "credible_interval_coverage": 0.9666666666666667,
     "coverage_runs": 120
@@ -125,22 +125,22 @@
     "lalonde": {
       "experimental_benchmark": 1794.342404270271,
       "naive_cps_comparison": -8497.516142636992,
-      "psm_att": 1626.9603562162163,
+      "psm_att": 1722.469404864865,
       "psm_ci": [
-        -317.5517463544832,
-        3301.650017882026
+        -405.35477673596256,
+        3149.6949430035797
       ],
-      "dowhy_psm": 1642.8639130810811,
+      "dowhy_psm": 1732.2703617297295,
       "dowhy_placebo": {
         "name": "Placebo treatment (shuffled treatment labels)",
-        "placebo_effect": -168.0077162216216,
-        "p_value": 0.4205086896109118
+        "placebo_effect": -261.28898000540545,
+        "p_value": 0.3836543284196575
       },
       "econml_dr": {
         "available": true,
-        "ate": 484.62613574609304,
-        "ci_low": -1905.1102649989912,
-        "ci_high": 2874.362536491177,
+        "ate": 471.706934496841,
+        "ci_low": -1933.3784702707849,
+        "ci_high": 2876.792339264466,
         "n_used": 692,
         "n_treated_used": 155,
         "trim": [
@@ -151,7 +151,7 @@
       "treated_matched": "185 of 185",
       "worst_balance_after": 0.13035090135470617,
       "worst_balance_before": 2.4277468150409307,
-      "seconds": 7.223424673080444
+      "seconds": 10.431071281433105
     },
     "simulated_psm": {
       "true_effect": 2.0,
@@ -160,39 +160,39 @@
       "psm_mean": 2.0442808709863534,
       "psm_rmse": 0.1275513209681878,
       "dowhy_mean_first8": 2.010462407153307,
-      "econml_mean_first8": 1.9874351537468362
+      "econml_mean_first8": 1.9877286155767955
     },
     "did": {
       "true_effect": 3.0,
       "runs": 60,
-      "mean_estimate": 3.0110967881944335,
-      "rmse": 0.21127797022950703,
+      "mean_estimate": 3.0110967881944517,
+      "rmse": 0.21127797022950867,
       "ci_coverage_clustered": 0.9166666666666666,
       "false_positive_rate_no_effect_placebo": 0.0,
       "pretrend_flag_rate_when_parallel": 0.08333333333333333,
       "pretrend_flag_rate_when_diverging": 1.0
     },
     "organ_donations": {
-      "estimate": -0.022458974358974315,
-      "ci_low": -0.03494168078582109,
-      "ci_high": -0.009976267932127542,
-      "p_value": 0.0010215525217931584,
+      "estimate": -0.022458974358974162,
+      "ci_low": -0.03494168078582025,
+      "ci_high": -0.009976267932128075,
+      "p_value": 0.0010215525217927037,
       "placebo_p": 0.18518518518518517,
-      "pretrend_p": 0.562754258614534
+      "pretrend_p": 0.56275425861475
     },
     "synthetic_control": {
       "true_effect": -4.0,
       "runs": 30,
-      "mean_estimate": -4.003422439074851,
-      "rmse": 0.19584586700834536,
+      "mean_estimate": -4.003422439107161,
+      "rmse": 0.1958458670145026,
       "false_positive_rate_at_p0.1_no_effect": 0.16666666666666666
     },
     "texas": {
-      "avg_post_gap": 21013.18795116065,
-      "relative_gap_pct": 66.24442881330818,
-      "p_value": 0.17647058823529413,
-      "pre_rmspe": 862.8915610550404,
-      "ratio": 26.66149685770394
+      "avg_post_gap": 21013.187951160613,
+      "relative_gap_pct": 66.24442881330799,
+      "p_value": 0.1568627450980392,
+      "pre_rmspe": 862.8915610550425,
+      "ratio": 26.661496857703817
     }
   },
   "api_speed": {
@@ -202,49 +202,49 @@
         "method": "ttest",
         "rows": 20000,
         "status": 200,
-        "seconds": 0.16
+        "seconds": 0.24
       },
       {
         "example": "ab_chisq",
         "method": "chisq",
         "rows": 20000,
         "status": 200,
-        "seconds": 0.1
+        "seconds": 0.06
       },
       {
         "example": "multi",
         "method": "multiple",
         "rows": 6000,
         "status": 200,
-        "seconds": 1.12
+        "seconds": 0.18
       },
       {
         "example": "seq",
         "method": "sequential",
         "rows": 20000,
         "status": 200,
-        "seconds": 0.08
+        "seconds": 0.09
       },
       {
         "example": "bayes",
         "method": "bayes",
         "rows": 20000,
         "status": 200,
-        "seconds": 1.64
+        "seconds": 14.49
       },
       {
         "example": "psm_lalonde",
         "method": "psm",
         "rows": 16177,
         "status": 200,
-        "seconds": 4.25
+        "seconds": 4.53
       },
       {
         "example": "psm_sim",
         "method": "psm",
         "rows": 4000,
         "status": 200,
-        "seconds": 2.0
+        "seconds": 1.74
       },
       {
         "example": "did_organ",
@@ -265,16 +265,16 @@
         "method": "synth",
         "rows": 816,
         "status": 200,
-        "seconds": 0.53
+        "seconds": 0.45
       },
       {
         "example": "synth_sim",
         "method": "synth",
         "rows": 780,
         "status": 200,
-        "seconds": 0.13
+        "seconds": 0.29
       }
     ],
-    "power_endpoint_ms": 60.02589464187622
+    "power_endpoint_ms": 69.60173845291138
   }
 }

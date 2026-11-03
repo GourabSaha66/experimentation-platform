@@ -13,6 +13,7 @@ import math
 import numpy as np
 import pandas as pd
 import pymc as pm
+import pytensor
 
 from .ab_tests import _binary_outcome, srm_check, _srm_warning
 from .common import UserError, fmt, kn, numeric, pct, require_columns, result, split_groups
@@ -56,9 +57,23 @@ def _summ(diff: np.ndarray, rel: np.ndarray | None, pa: np.ndarray, pb: np.ndarr
 
 
 def _sample(model: pm.Model, draws: int, tune: int, chains: int, seed: int):
-    with model:
-        return pm.sample(draws=draws, tune=tune, chains=chains, cores=1, random_seed=seed, progressbar=False,
-                         compute_convergence_checks=False)
+    """Run NUTS. If PyTensor's C compile fails, retry once in its pure-Python mode.
+
+    PyTensor normally compiles the sampler to C, which is fast. On a computer where a C++ compiler exists but
+    Python's header files do not (common with a plain Windows Python install), that compile fails while sampling
+    starts. The pure-Python mode is slower but gives the same answers, so switch to it instead of failing.
+    """
+    for attempt in (1, 2):
+        try:
+            with model:
+                return pm.sample(draws=draws, tune=tune, chains=chains, cores=1, random_seed=seed, progressbar=False,
+                                 compute_convergence_checks=False)
+        except Exception as e:  # noqa: BLE001
+            is_compile_error = "CompileError" in {c.__name__ for c in type(e).__mro__} or "Compilation failed" in str(e)
+            if attempt == 1 and is_compile_error and pytensor.config.cxx:
+                pytensor.config.cxx = ""
+                continue
+            raise
 
 
 def _diagnostics(idata, names: list[str]) -> tuple[float, float | None]:

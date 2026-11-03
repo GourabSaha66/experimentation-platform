@@ -1,10 +1,10 @@
-============================= test session starts ==============================
-platform linux -- Python 3.13.16, pytest-9.1.1, pluggy-1.7.0 -- /home/claude/experimentation-platform/.venv/bin/python
+﻿============================= test session starts =============================
+platform win32 -- Python 3.10.6, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\GOURAB\Downloads\experimentation-platform\experimentation-platform\.venv\Scripts\python.exe
 cachedir: .pytest_cache
-rootdir: /home/claude/experimentation-platform
+rootdir: C:\Users\GOURAB\Downloads\experimentation-platform\experimentation-platform
 configfile: pytest.ini
 testpaths: tests
-plugins: anyio-4.15.1
+plugins: anyio-4.16.0, platformdirs-4.12.4
 collecting ... collected 52 items
 
 tests/test_ab_tests.py::test_welch_matches_scipy PASSED                  [  1%]
@@ -60,9 +60,10 @@ tests/test_sequential.py::test_no_effect_stays_inconclusive PASSED       [ 96%]
 tests/test_sequential.py::test_confidence_sequence_is_nested_and_p_values_monotone PASSED [ 98%]
 tests/test_sequential.py::test_too_little_data_is_a_user_error PASSED    [100%]
 
-=============================== warnings summary ===============================
+============================== warnings summary ===============================
 tests/test_bayes.py::test_analyze_bayes_end_to_end
-    return 0.5 * np.dot(x, v_out)
+  C:\Users\GOURAB\Downloads\experimentation-platform\experimentation-platform\.venv\lib\site-packages\pytensor\tensor\elemwise.py:710: RuntimeWarning: divide by zero encountered in divide
+    variables = ufunc(*ufunc_args, **ufunc_kwargs)
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-=================== 52 passed, 1 warning in 76.13s (0:01:16) ===================
+================== 52 passed, 1 warning in 386.73s (0:06:26) ==================
