@@ -6,7 +6,7 @@ Built for assignment DS-04 (Data Science track). Stack: **FastAPI**, **statsmode
 
 ![Sequential test result](docs/screenshots/05_sequential.png)
 
-**Live demo:** _add the Render link here after deploying (see [docs/deployment.md](docs/deployment.md))_
+**Live demo:** https://experimentation-platform.onrender.com (free hosting: the first visit after idle can take about a minute to wake up; deployment notes in [docs/deployment.md](docs/deployment.md))
 
 ## What it does
 
